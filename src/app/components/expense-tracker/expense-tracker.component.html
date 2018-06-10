@@ -1,0 +1,47 @@
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile>
+    <!-- <mat-grid-tile-header>Add expense </mat-grid-tile-header> -->
+    <section>
+      <form [formGroup]="expenseTrackerForm">
+        <mat-list>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="date" formControlName="date">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="amount" formControlName="amount">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-form-field>
+              <input matInput placeholder="category" formControlName="category">
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <button mat-raised-button color="primary" type="submit" (click)="createTransaction()">
+              <mat-icon>save</mat-icon>
+              Save
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </form>
+    </section>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <section>
+      <!-- <mat-grid-tile-header>Add expense </mat-grid-tile-header> -->
+
+      <mat-list>
+        <mat-list-item  *ngFor="let expense of expenses">
+            {{expense.date}} : {{expense.category}} : {{expense.amount}}
+        </mat-list-item>
+      </mat-list>
+      <!-- <div *ngFor="let expense of expenses">
+        {{expense.date}} : {{expense.category}} : {{expense.amount}}
+      </div> -->
+    </section>
+  </mat-grid-tile>
+</mat-grid-list>
